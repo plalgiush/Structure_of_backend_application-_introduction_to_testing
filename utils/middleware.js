@@ -12,16 +12,16 @@ const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' })
 }
 
-const errorHandler = (noteserror, request, response, next) => {
-  logger.error(error.message)
+const errorHandler = (blogserror, request, response, next) => {
+  logger.error.message
 
-  if (error.name === 'CastError') {
+  if (logger.error.name === 'CastError') {
     return response.status(400).send({ error: 'malformatted id' })
-  } else if (error.name === 'ValidationError') {
-    return response.status(400).json({ error: error.message })
+  } else if (logger.error.name === 'ValidationError') {
+    return response.status(400).json({ error: logger.error.message })
   }
 
-  next(error)
+  next(logger.error)
 }
 
 module.exports = {
